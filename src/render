@@ -1,0 +1,99 @@
+#!/usr/bin/env ruby
+
+
+THEME_NAME = 'charcoal'
+
+
+names = {
+  'left_ptr' => '01',
+  'right_ptr' => '01',
+  'center_ptr' => '01',
+  'text' => '01',
+  'vertical_text' => '01',
+  'pointer' => '01',
+  'cross' => '01',
+  'context_menu' => '01',
+  'help' => '01',
+
+  'openhand' => '01',
+  'closedhand' => '01',
+  'copy' => '01',
+  'link' => '01',
+  'move' => '01',
+  'no_drop' => '01',
+  'none' => '01',
+  'zoom_in' => '01',
+  'zoom_out' => '01',
+  'crossed_circle' => '01',
+  'progress' => '01',
+  'wait' => '01',
+
+  'resize_nw' => '01',
+  'resize_n' => '01',
+  'resize_ne' => '01',
+  'resize_w' => '01',
+  'resize_e' => '01',
+  'resize_sw' => '01',
+  'resize_s' => '01',
+  'resize_se' => '01',
+  'resize_nwse' => '01',
+  'resize_nesw' => '01',
+  'resize_we' => '01',
+  'resize_ns' => '01',
+  'resize_all' => '01',
+
+  'color_picker' => '01',
+  'pencil' => '01',
+  'pirate' => '01',
+  'x_cursor' => '01',
+}
+
+
+def check_dir(dir)
+  unless File.directory?(dir)
+    Dir.mkdir(dir) || exit
+  end
+end
+
+
+def run(names)
+  dir_svg = './svg'
+  dir_png = './png'
+  dir_cfg = './cfg'
+  dir_cur = '../' + THEME_NAME + '/cursors'
+  errors = []
+
+  check_dir('../' + THEME_NAME)
+  check_dir(dir_png)
+  check_dir(dir_cur)
+
+  names.each do |name, v|
+    svg = "#{dir_svg}/#{name}_#{v}.svg"
+    png = "#{dir_png}/#{name}_#{v}.png"
+    cfg = "#{dir_cfg}/#{name}_#{v}.cfg"
+    cur = "#{dir_cur}/._#{name}"
+    puts_string_png = "\"#{svg}\" ---> \"#{png}\""
+    puts_string_cur = "\"#{cfg}\" ---> \"#{cur}\""
+    cmd_png = "rsvg-convert \"#{svg}\" -o \"#{png}\""
+    cmd_cur = "xcursorgen \"#{cfg}\" \"#{cur}\""
+
+    unless system cmd_png
+      puts "!!! ERROR - " + puts_string_png
+      errors << puts_string_png
+      next
+    end
+
+    unless system cmd_cur
+      puts "!!! ERROR - " + putsL_string_cur
+      error << puts_string_cur
+      next
+    end
+
+    puts "OK - ._#{name}"
+  end
+
+  puts "\nERRORS - #{errors.size}\n" if errors.size > 0
+end
+
+
+run(names)

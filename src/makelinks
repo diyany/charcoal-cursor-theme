@@ -1,0 +1,331 @@
+#!/usr/bin/env ruby
+
+
+THEME_NAME = 'charcoal'
+
+
+names = {
+  '._left_ptr' => [
+    'left_ptr',
+    'left-arrow',
+    'top_left_arrow',
+    'default',
+    ],
+
+  '._right_ptr' => [
+    'right_ptr',
+    'right-arrow',
+    'top_right_arrow',
+    'arrow',
+    'draft_large',
+    'draft_small',
+    ],
+
+  '._center_ptr' => [
+    'center_ptr',
+    'up_arrow',
+    'up-arrow',
+  ],
+
+  '._text' => [
+    'text',
+    'ibeam',
+    'xterm',
+  ],
+
+  '._vertical_text' => [
+    'vertical_text',
+    'vertical-text',
+    '048008013003cff3c00c801001200000',
+  ],
+
+  '._pointer' => [
+    'pointer',
+    'hand',
+    'hand2',
+    'pointing_hand',
+    'e29285e634086352946a0e7090d73106',
+    '9d800788f1b08800ae810202380a0822',
+  ],
+
+  '._cross' => [
+    'cross',
+    'crosshair',
+    'cell',
+    'diamond_cross',
+    'target',
+  ],
+
+  '._context_menu' => [
+    'context_menu',
+    'context-menu',
+    '08ffe1e65f80fcfdf9fff11263e74c48',
+  ],
+
+  '._help' => [
+    'help',
+    'question_arrow',
+    'whats_this',
+    'left_ptr_help',
+    'gumby',
+    'dnd-ask',
+    'dnd_ask',
+    '5c6cd98b3f3ebcb1f9c7f1c204630408',
+    'd9ce0ab605698f320427677b458ad60b',
+  ],
+
+  '._openhand' => [
+    'openhand',
+    'all_scroll',
+    'all-scroll',
+    'plus',
+    'hand1',
+    'grab',
+    '5aca4d189052212118709018842178c0',
+  ],
+
+  '._closedhand' => [
+    'closedhand',
+    'grabbing',
+    '208530c400c041818281048008011002',
+    'fcf21c00b30f7e3f83fe0dfd12e71cff',
+  ],
+
+  '._copy' => [
+    'copy',
+    'dnd_copy',
+    'dnd-copy',
+    '08ffe1cb5fe6fc01f906f1c063814ccf',
+    '1081e37283d90000800003c07f3ef6bf',
+    '6407b0e94181790501fd1e167b474872',
+    'b66166c04f8c3109214a4fbd64a50fc8',
+  ],
+
+  '._link' => [
+    'link',
+    'alias',
+    'dnd_link',
+    'dnd-link',
+    '0876e1c15ff2fc01f906f1c363074c0f',
+    '3085a0e285430894940527032f8b26df',
+    '640fb0e74195791501fd1ed57b41487f',
+    'a2a266d0498c3104214a47bd64ab0fc8',
+  ],
+
+  '._move' => [
+    'move',
+    'dnd-move',
+    'dnd_move',
+    'fleur',
+    '4498f0e0c1937ffe01fd06f973665830',
+    '9081237383d90e509aa00f00170e968f',
+  ],
+
+  '._no_drop' => [
+    'no-drop',
+    'dnd_no_drop',
+    'dnd-no-drop',
+    '03b6e0fcb3499374a867d041f52298f0',
+  ],
+
+  '._none' => [
+    'dnd_none',
+    'dnd-none',
+  ],
+
+  '._zoom_in' => [
+    'zoom_in',
+    'zoom-in',
+    'f41c0e382c94c0958e07017e42b00462',
+  ],
+
+  '._zoom_out' => [
+    'zoom_out',
+    'zoom-out',
+    'f41c0e382c97c0938e07017e42800402',
+  ],
+
+  '._crossed_circle' => [
+    'crossed_circle',
+    'circle',
+    'forbidden',
+    'not-allowed',
+    '03b6e0fcb3499374a867c041f52298f0',
+  ],
+
+  '._progress' => [
+    'progress',
+    'half-busy',
+    '00000000000000020006000e7e9ffc3f',
+    '9116a3ea924ed2162ecab71ba103b17f',
+  ],
+
+  '._wait' => [
+    'wait',
+    'watch',
+    'clock',
+    'left_ptr_watch',
+    '0426c94ea35c87780ff01dc239897213',
+    '3ecb610c1bf2410f44200f48c40d3599',
+    '08e8e1c95fe2fc01f976f1e063a24ccd',
+  ],
+
+  '._resize_nw' => [
+    'nw_resize',
+    'nw-resize',
+    'top_left_corner',
+  ],
+
+  '._resize_n' => [
+    'n_resize',
+    'n-resize',
+    'top_side',
+    'sb_down_arrow',
+  ],
+
+  '._resize_ne' => [
+    'ne_resize',
+    'ne-resize',
+    'top_right_corner',
+  ],
+
+  '._resize_w' => [
+    'w_resize',
+    'w-resize',
+    'left_side',
+    'sb_right_arrow',
+  ],
+
+  '._resize_e' => [
+    'e_resize',
+    'e-resize',
+    'right_side',
+    'sb_left_arrow',
+  ],
+
+  '._resize_sw' => [
+    'sw_resize',
+    'sw-resize',
+    'bottom_left_corner',
+  ],
+
+  '._resize_s' => [
+    's_resize',
+    's-resize',
+    'bottom_side',
+    'sb_up_arrow',
+  ],
+
+  '._resize_se' => [
+    'se_resize',
+    'se-resize',
+    'bottom_right_corner',
+  ],
+
+  '._resize_nwse' => [
+    'nwse_resize',
+    'nwse-resize',
+    'size_fdiag',
+    '38c5dff7c7b8962045400281044508d2',
+    'c7088f0f3e6c8088236ef8e1e3e70000',
+  ],
+
+  '._resize_nesw' => [
+    'nesw_resize',
+    'nesw-resize',
+    'size_bdiag',
+    '50585d75b494802d0151028115016902',
+    'fcf1c3c7cd4491d801f1e1c78f100000',
+  ],
+
+  '._resize_we' => [
+    'ew-resize',
+    'col_resize',
+    'col-resize',
+    'sb_h_double_arrow',
+    'split_h',
+    'size_hor',
+    'h_double_arrow',
+    '043a9f68147c53184671403ffa811cc5',
+    '14fef782d02440884392942c11205230',
+    '028006030e0e7ebffc7f7070c0600140',
+  ],
+
+  '._resize_ns' => [
+    'ns-resize',
+    'row_resize',
+    'row-resize',
+    'sb_v_double_arrow',
+    'split_v',
+    'size_ver',
+    'v_double_arrow',
+    'double_arrow',
+    '2870a09082c103050810ffdffffe0204',
+    'c07385c7190e701020ff7ffffd08103c',
+    '00008160000006810000408080010102',
+  ],
+
+  '._resize_all' => [
+    'size_all',
+  ],
+
+  '._color_picker' => [
+    'color_picker',
+  ],
+
+  '._pencil' => [
+    'pencil',
+  ],
+
+  '._pirate' => [
+    'pirate',
+  ],
+
+  '._x_cursor' => [
+    'x_cursor',
+    'X_cursor',
+    'X-cursor',
+  ],
+}
+
+
+def run(names)
+  errors = []
+
+  Dir.chdir("../#{THEME_NAME}/cursors")
+
+  names.each do |name, links|
+    unless File.exist?(name)
+      error_string = "!!! ERROR - File not found ---> \"#{name}\""
+      #error_string = "!!! WARNING - File not found ---> \"#{name}\""
+      puts error_string
+      errors << error_string
+      next
+    end
+
+    links.each do |link|
+      puts_string = "\"#{name}\" <--- \"#{link}\""
+
+      if File.symlink?(link)
+        puts "SKIPPED - " + puts_string
+        next
+      end
+
+      unless File.symlink(name, link)
+        error_string = "!!! ERROR - Unable to create link ---> " + puts_string
+        puts error_string
+        errors << error_string
+        next
+      end
+
+      puts "OK - " + puts_string
+    end
+
+    puts
+  end
+
+  puts "\nERRORS - #{errors.size}\n" if errors.size > 0
+end
+
+
+run(names)

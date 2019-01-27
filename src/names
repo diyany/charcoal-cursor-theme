@@ -1,0 +1,254 @@
+## BASIC
+
+## left_ptr - основной курсор
+left_ptr
+left-arrow
+top_left_arrow
+default
+
+## right_ptr - обратный курсор (обычно для выделения строк целиком)
+right_ptr
+right-arrow
+top_right_arrow
+arrow
+draft_large
+draft_small
+
+## center_ptr - указывает на середину или точное положение
+center_ptr
+up_arrow
+up-arrow
+
+## text - текстовый курсор (наведение, выделение)
+text
+ibeam
+xterm
+
+## vertical_text - курсор для вертикального текста
+vertical_text
+vertical-text
+048008013003cff3c00c801001200000
+
+## pointer - при наведении на ссылку
+pointer
+hand
+hand2
+pointing_hand
+e29285e634086352946a0e7090d73106
+9d800788f1b08800ae810202380a0822
+
+## cross - курсор для указания цели
+cross
+crosshair
+cell
+diamond_cross
+target
+
+## context_menu - можно вызвать контекстное меню
+context_menu
+context-menu
+08ffe1e65f80fcfdf9fff11263e74c48
+
+## help - вспомогательная информация, подсказка, помощь
+help
+question_arrow
+whats_this
+left_ptr_help
+gumby
+dnd-ask
+dnd_ask
+5c6cd98b3f3ebcb1f9c7f1c204630408
+d9ce0ab605698f320427677b458ad60b
+
+
+## ACTION
+
+## openhand - указывает на то, что объект можно переместить
+openhand
+all_scroll
+all-scroll
+plus
+hand1
+grab
+5aca4d189052212118709018842178c0
+
+## closedhand - во время перемещения объекта
+closedhand
+grabbing
+208530c400c041818281048008011002
+fcf21c00b30f7e3f83fe0dfd12e71cff
+
+## copy - сделать копию объекта
+copy
+dnd_copy
+dnd-copy
+08ffe1cb5fe6fc01f906f1c063814ccf
+1081e37283d90000800003c07f3ef6bf
+6407b0e94181790501fd1e167b474872
+b66166c04f8c3109214a4fbd64a50fc8
+
+## link - сделать ссылку на объект
+link
+alias
+dnd_link
+dnd-link
+0876e1c15ff2fc01f906f1c363074c0f
+3085a0e285430894940527032f8b26df
+640fb0e74195791501fd1ed57b41487f
+a2a266d0498c3104214a47bd64ab0fc8
+
+## move - переместить объект
+move
+dnd-move
+dnd_move
+fleur
+4498f0e0c1937ffe01fd06f973665830
+9081237383d90e509aa00f00170e968f
+
+## no_drop - здесь бросить объект нельзя
+no-drop
+dnd_no_drop
+dnd-no-drop
+03b6e0fcb3499374a867d041f52298f0
+
+## none - действие запрещено
+dnd_none
+dnd-none
+
+## zoom_in - увеличить масштаб (размер)
+zoom_in
+zoom-in
+f41c0e382c94c0958e07017e42b00462
+
+## zoom_out - уменьшить масштаб (размер)
+zoom_out
+zoom-out
+f41c0e382c97c0938e07017e42800402
+
+## crossed_circle - при наведении на заблокированный объект
+crossed_circle
+circle
+forbidden
+not-allowed
+03b6e0fcb3499374a867c041f52298f0
+
+## progress - 
+progress
+half-busy
+00000000000000020006000e7e9ffc3f
+9116a3ea924ed2162ecab71ba103b17f
+
+## wait - ожидание, выполняется работа
+wait
+watch
+clock
+left_ptr_watch
+0426c94ea35c87780ff01dc239897213
+3ecb610c1bf2410f44200f48c40d3599
+08e8e1c95fe2fc01f976f1e063a24ccd
+
+
+## RESIZE
+
+## resize_nw - левый верхний угол окна
+nw_resize
+nw-resize
+top_left_corner
+
+## resize_n - верхний край окна
+n_resize
+n-resize
+top_side
+sb_down_arrow
+
+## resize_ne - правый верхний угол окна
+ne_resize
+ne-resize
+top_right_corner
+
+## resize_w - левый край окна
+w_resize
+w-resize
+left_side
+sb_right_arrow
+
+## resize_e - правый край окна
+e_resize
+e-resize
+right_side
+sb_left_arrow
+
+## resize_sw - левый нижний край окна
+sw_resize
+sw-resize
+bottom_left_corner
+
+## resize_s - нижний край окна
+s_resize
+s-resize
+bottom_side
+sb_up_arrow
+
+## resize_se - правый нижний край окна
+se_resize
+se-resize
+bottom_right_corner
+
+## resize_nwse - от левого верхнего к правому нижнему уголу окна
+nwse_resize
+nwse-resize
+size_fdiag
+38c5dff7c7b8962045400281044508d2
+c7088f0f3e6c8088236ef8e1e3e70000
+
+## resize_nesw - от правого верхнего к левому нижнему уголу окна
+nesw_resize
+nesw-resize
+size_bdiag
+50585d75b494802d0151028115016902
+fcf1c3c7cd4491d801f1e1c78f100000
+
+## resize_we - изменить размер колонок и по горизонтали
+ew-resize
+col_resize
+col-resize
+sb_h_double_arrow
+split_h
+size_hor
+h_double_arrow
+043a9f68147c53184671403ffa811cc5
+14fef782d02440884392942c11205230
+028006030e0e7ebffc7f7070c0600140
+
+## resize_ns - изменить размер строк и по вертикали
+ns-resize
+row_resize
+row-resize
+sb_v_double_arrow
+split_v
+size_ver
+v_double_arrow
+double_arrow
+2870a09082c103050810ffdffffe0204
+c07385c7190e701020ff7ffffd08103c
+00008160000006810000408080010102
+
+## resize_all - изменить размер в обоих направлениях
+size_all
+
+
+## ETC
+
+## color_picker - взять образец цвета
+color_picker
+
+## pencil - 
+pencil
+
+## pirate - 
+pirate
+
+## x_cursor - курсор пустого X-сервера
+x_cursor
+X_cursor
+X-cursor
